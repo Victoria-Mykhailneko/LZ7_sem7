@@ -1,4 +1,5 @@
 #Лабораторна робота №7: Опрацювання динамічних масивів
+
 **Виконала:** студентка групи 4 СОМ Вікторія Михайленко (Варіант № 9)
 
 **Мета:** набути практичних навиків програмного використання вказівників та динамічної пам’яті при
@@ -7,9 +8,6 @@
 ##  Завдання
 **Завдання 1:**
 <img width="461" height="18" alt="image" src="https://github.com/user-attachments/assets/498d71e7-1b82-4771-8417-2161e632b5ce" />
-
-**Завдання 2:**
-<img width="384" height="17" alt="image" src="https://github.com/user-attachments/assets/18bdd25d-9e42-4eec-907e-bb9ea1898496" />
 
 ### 💻 Код програми Завдання 1 вказівник:
 ```cpp
@@ -98,3 +96,45 @@ int main() {
 ```
 **Результат**
 <img width="864" height="550" alt="image" src="https://github.com/user-attachments/assets/4a47da9e-2cc1-400f-887f-83b80a53522c" />
+
+**Завдання 2:**
+<img width="384" height="17" alt="image" src="https://github.com/user-attachments/assets/18bdd25d-9e42-4eec-907e-bb9ea1898496" />
+
+### 💻 Код програми Завдання 2 вектор:
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Введіть розмірність квадратної матриці (n x n): ";
+    cin >> n;
+
+    vector<vector<double>> matrix(n, vector<double>(n));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << "Введіть елемент [" << i << "][" << j << "]: ";
+
+            cin >> *(matrix[i].data() + j);
+        }
+    }
+
+    double traceSum = 0;
+    for (int i = 0; i < n; i++) {
+        traceSum += *(matrix[i].data() + i);
+    }
+
+    cout << "\nСума елементів головної діагоналі (слід матриці): " << traceSum << endl;
+
+    return 0;
+}
+```
+
+**Результат**
+<img width="869" height="497" alt="image" src="https://github.com/user-attachments/assets/84012799-5933-4252-9fd0-d0908df78025" />
+
+**Вмсновок:** Під час виконання лабораторної роботи я опанувала методи опрацювання одновимірних і двовимірних структур даних у мові C++ із використанням динамічної пам'яті та контейнера std::vector. Застосування арифметики вказівників дозволило реалізувати алгоритми знаходження середнього арифметичного додатних елементів масиву та обчислення сліду квадратної матриці.
